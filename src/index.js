@@ -8,7 +8,7 @@ const paises = require('./routes/paises');
 
 const app=express();
 app.use(express.json())
-app.set("port",PORT);
+
 
 //RUTAS
 
@@ -17,6 +17,5 @@ app.use('/paises',paises)
 
 
 
-app.listen(app.get("port"),()=>{
-    console.log('Server corriendo en el puerto:'+app.get("port"));
-})
+app.listen(PORT);
+console.log('Server on port: ',PORT)
