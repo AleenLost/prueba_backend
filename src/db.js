@@ -4,7 +4,10 @@ const { DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, DATABASE_HOST } = requi
 
 const sequelize=new Sequelize(DATABASE_NAME,DATABASE_USER,DATABASE_PASSWORD,{
     host: DATABASE_HOST,
-    dialect: "mysql"
+    dialect: "mysql",
+    define: {
+        timestamps: false
+    }
 });
 
 (async()=>{

@@ -1,5 +1,4 @@
 const express=require('express');
-const { PORT } = require('./config');
 const equipos = require('./routes/equipos');
 const paises = require('./routes/paises');
 
@@ -7,15 +6,14 @@ const paises = require('./routes/paises');
 
 
 const app=express();
-app.use(express.json())
-
-
+app.use(express.json());
 //RUTAS
 
 app.use('/equipos',equipos);
 app.use('/paises',paises)
 
+const PORT=3000;
 
-
-app.listen(PORT);
-console.log('Server on port: ',PORT)
+app.listen(process.env.PORT || PORT,()=>{
+    console.log('Server corriendo en el puerto:'+app.get("port"));
+})
